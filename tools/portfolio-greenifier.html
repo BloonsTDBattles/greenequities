@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Greenifier - EcoInvest Institute</title>
+    <link rel="stylesheet" href="portfolio-styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        .back-nav {
+            background: #2d6a4f;
+            padding: 15px 30px;
+            margin-bottom: 0;
+        }
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.3s;
+        }
+        .back-link:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="back-nav">
+        <a href="../index.html" class="back-link">← Back to Main Site</a>
+    </div>
+    <div class="container">
+        <header>
+            <h1>Portfolio Greenifier</h1>
+            <p>Track and optimize your sustainable investment portfolio</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Input Section -->
+            <div class="input-section">
+                <h2>Add Stock Holdings</h2>
+                <div class="input-form">
+                    <div class="form-group">
+                        <label for="stock-symbol">Stock Symbol</label>
+                        <input type="text" id="stock-symbol" placeholder="e.g., AAPL" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="stock-value">Value ($)</label>
+                        <input type="number" id="stock-value" placeholder="e.g., 5000" min="0" step="0.01">
+                    </div>
+                    <button id="add-stock-btn" class="btn btn-primary">Add Stock</button>
+                </div>
+
+                <!-- Portfolio List -->
+                <div class="portfolio-list">
+                    <h3>Current Holdings</h3>
+                    <div id="holdings-container" class="holdings-container">
+                        <p class="empty-state">No stocks added yet. Add your first stock above!</p>
+                    </div>
+                    <div class="portfolio-summary">
+                        <div class="summary-item">
+                            <span>Total Portfolio Value:</span>
+                            <strong id="total-value">$0.00</strong>
+                        </div>
+                        <div class="summary-item">
+                            <span>Number of Holdings:</span>
+                            <strong id="holdings-count">0</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ESG Summary -->
+                <div id="esg-summary" class="esg-summary">
+                    <p class="empty-state">Add stocks with ESG data to see portfolio ESG metrics</p>
+                </div>
+            </div>
+
+            <!-- Chart Section -->
+            <div class="chart-section">
+                <h2>Portfolio Breakdown</h2>
+                <div id="chart-container" class="chart-container">
+                    <canvas id="portfolio-chart"></canvas>
+                </div>
+                <div id="chart-legend" class="chart-legend"></div>
+
+                <!-- Performance Chart -->
+                <div id="performance-section" class="performance-section" style="display: none;">
+                    <h3>5-Year Portfolio Performance</h3>
+                    <div class="performance-chart-container">
+                        <canvas id="performance-chart"></canvas>
+                    </div>
+                    <div class="performance-loading">Loading historical data...</div>
+                </div>
+
+                <!-- Suggestions Section -->
+                <div id="suggestions-container" class="suggestions-section" style="display: none;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="portfolio-script.js"></script>
+</body>
+</html>

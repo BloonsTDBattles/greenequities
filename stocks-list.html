@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Stocks List - Green Equities Research</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #2d6a4f 0%, #52b788 100%);
+            min-height: 100vh;
+        }
+
+        .page-header {
+            color: white;
+            padding: 80px 40px 40px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0;
+        }
+
+        .stocks-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 40px 80px;
+        }
+
+        .category-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .category-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #2d6a4f;
+        }
+
+        .category-title {
+            font-size: 2rem;
+            color: #2d6a4f;
+            margin: 0;
+        }
+
+        .stocks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .stock-card {
+            background: #f9f9f9;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 15px 20px;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stock-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            border-color: #2d6a4f;
+        }
+
+        .stock-name {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #333;
+            line-height: 1.3;
+        }
+
+        .stock-ticker {
+            background: #2d6a4f;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .stocks-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="gerlogo.png" alt="Green Equities Research" class="logo-image">
+                <span class="logo-text">Green Equities Research</span>
+            </a>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="articles.html" class="nav-link">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a href="esg-basics.html" class="nav-link">ESG Basics</a>
+                </li>
+                <li class="nav-item">
+                    <a href="stocks-list.html" class="nav-link">Stocks List</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <span class="nav-link">Tools ▾</span>
+                    <div class="dropdown-content">
+                        <a href="tools/portfolio-greenifier.html">Portfolio Greenifier</a>
+                        <a href="#quiz">Green Fund Quiz</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About Us</a>
+                </li>
+            </ul>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Sustainable Stocks List</h1>
+    </section>
+
+    <!-- Stocks Container -->
+    <div class="stocks-container">
+        <!-- Power Generation, Renewables, Grid Infrastructure -->
+        <div class="category-section">
+            <div class="category-header">
+                <h2 class="category-title">Power Generation, Renewables, Grid Infrastructure</h2>
+            </div>
+            <div class="stocks-grid">
+                <a href="https://finance.yahoo.com/quote/GEV" target="_blank" class="stock-card">
+                    <span class="stock-name">GE Vernova</span>
+                    <span class="stock-ticker">GEV</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/IBDRY" target="_blank" class="stock-card">
+                    <span class="stock-name">Iberdrola</span>
+                    <span class="stock-ticker">IBDRY</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/SMNEY" target="_blank" class="stock-card">
+                    <span class="stock-name">Siemens Energy</span>
+                    <span class="stock-ticker">SMNEY</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/DNNGY" target="_blank" class="stock-card">
+                    <span class="stock-name">Ørsted</span>
+                    <span class="stock-ticker">DNNGY</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/CLPXY" target="_blank" class="stock-card">
+                    <span class="stock-name">China Longyuan Power</span>
+                    <span class="stock-ticker">CLPXY</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/AGR" target="_blank" class="stock-card">
+                    <span class="stock-name">Avangrid</span>
+                    <span class="stock-ticker">AGR</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/RNW" target="_blank" class="stock-card">
+                    <span class="stock-name">Renew Energy Global</span>
+                    <span class="stock-ticker">RNW</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Wind & Turbine Supply Chain -->
+        <div class="category-section">
+            <div class="category-header">
+                <h2 class="category-title">Wind & Turbine Supply Chain</h2>
+            </div>
+            <div class="stocks-grid">
+                <a href="https://finance.yahoo.com/quote/VWDRY" target="_blank" class="stock-card">
+                    <span class="stock-name">Vestas Wind Systems</span>
+                    <span class="stock-ticker">VWDRY</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/TPIC" target="_blank" class="stock-card">
+                    <span class="stock-name">TPI Composites</span>
+                    <span class="stock-ticker">TPIC</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/AMSC" target="_blank" class="stock-card">
+                    <span class="stock-name">American Superconductor Corp</span>
+                    <span class="stock-ticker">AMSC</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Solar Manufacturing & Deployment -->
+        <div class="category-section">
+            <div class="category-header">
+                <h2 class="category-title">Solar Manufacturing & Deployment</h2>
+            </div>
+            <div class="stocks-grid">
+                <a href="https://finance.yahoo.com/quote/FSLR" target="_blank" class="stock-card">
+                    <span class="stock-name">First Solar</span>
+                    <span class="stock-ticker">FSLR</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/ENPH" target="_blank" class="stock-card">
+                    <span class="stock-name">Enphase Energy</span>
+                    <span class="stock-ticker">ENPH</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/SEDG" target="_blank" class="stock-card">
+                    <span class="stock-name">SolarEdge Technologies</span>
+                    <span class="stock-ticker">SEDG</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/RUN" target="_blank" class="stock-card">
+                    <span class="stock-name">Sunrun</span>
+                    <span class="stock-ticker">RUN</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/CSIQ" target="_blank" class="stock-card">
+                    <span class="stock-name">Canadian Solar</span>
+                    <span class="stock-ticker">CSIQ</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/JKS" target="_blank" class="stock-card">
+                    <span class="stock-name">JinkoSolar</span>
+                    <span class="stock-ticker">JKS</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/DQ" target="_blank" class="stock-card">
+                    <span class="stock-name">Daqo New Energy</span>
+                    <span class="stock-ticker">DQ</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/MAXN" target="_blank" class="stock-card">
+                    <span class="stock-name">Maxeon Solar Technologies</span>
+                    <span class="stock-ticker">MAXN</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/XISHY" target="_blank" class="stock-card">
+                    <span class="stock-name">Xinyi Solar</span>
+                    <span class="stock-ticker">XISHY</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/GCPEF" target="_blank" class="stock-card">
+                    <span class="stock-name">GCL Technologies</span>
+                    <span class="stock-ticker">GCPEF</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/FTCI" target="_blank" class="stock-card">
+                    <span class="stock-name">FTC Solar</span>
+                    <span class="stock-ticker">FTCI</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/TYGO" target="_blank" class="stock-card">
+                    <span class="stock-name">Tigo Energy</span>
+                    <span class="stock-ticker">TYGO</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/SOL" target="_blank" class="stock-card">
+                    <span class="stock-name">Emeren Group</span>
+                    <span class="stock-ticker">SOL</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/NOVA" target="_blank" class="stock-card">
+                    <span class="stock-name">Sunnova Energy</span>
+                    <span class="stock-ticker">NOVA</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Solar & Grid Hardware / Balance of System -->
+        <div class="category-section">
+            <div class="category-header">
+                <h2 class="category-title">Solar & Grid Hardware / Balance of System</h2>
+            </div>
+            <div class="stocks-grid">
+                <a href="https://finance.yahoo.com/quote/NXT" target="_blank" class="stock-card">
+                    <span class="stock-name">Nextracker</span>
+                    <span class="stock-ticker">NXT</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/ARRY" target="_blank" class="stock-card">
+                    <span class="stock-name">Array Technologies</span>
+                    <span class="stock-ticker">ARRY</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/SHLS" target="_blank" class="stock-card">
+                    <span class="stock-name">Shoals Technologies</span>
+                    <span class="stock-ticker">SHLS</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/ROCK" target="_blank" class="stock-card">
+                    <span class="stock-name">Gibraltar</span>
+                    <span class="stock-ticker">ROCK</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Energy Storage (Batteries, Long-Duration) -->
+        <div class="category-section">
+            <div class="category-header">
+                <h2 class="category-title">Energy Storage (Batteries, Long-Duration)</h2>
+            </div>
+            <div class="stocks-grid">
+                <a href="https://finance.yahoo.com/quote/FLNC" target="_blank" class="stock-card">
+                    <span class="stock-name">Fluence Energy</span>
+                    <span class="stock-ticker">FLNC</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/EOSE" target="_blank" class="stock-card">
+                    <span class="stock-name">Eos Energy</span>
+                    <span class="stock-ticker">EOSE</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/NRGV" target="_blank" class="stock-card">
+                    <span class="stock-name">Energy Vault</span>
+                    <span class="stock-ticker">NRGV</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/GWH" target="_blank" class="stock-card">
+                    <span class="stock-name">ESS Tech</span>
+                    <span class="stock-ticker">GWH</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/STEM" target="_blank" class="stock-card">
+                    <span class="stock-name">Stem Inc</span>
+                    <span class="stock-ticker">STEM</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/FREY" target="_blank" class="stock-card">
+                    <span class="stock-name">Freyr</span>
+                    <span class="stock-ticker">FREY</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Hydrogen & Fuel Cells -->
+        <div class="category-section">
+            <div class="category-header">
+                <h2 class="category-title">Hydrogen & Fuel Cells</h2>
+            </div>
+            <div class="stocks-grid">
+                <a href="https://finance.yahoo.com/quote/PLUG" target="_blank" class="stock-card">
+                    <span class="stock-name">Plug Power</span>
+                    <span class="stock-ticker">PLUG</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/BE" target="_blank" class="stock-card">
+                    <span class="stock-name">Bloom Energy</span>
+                    <span class="stock-ticker">BE</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/FCEL" target="_blank" class="stock-card">
+                    <span class="stock-name">FuelCell Energy</span>
+                    <span class="stock-ticker">FCEL</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/BLDP" target="_blank" class="stock-card">
+                    <span class="stock-name">Ballard Power Systems</span>
+                    <span class="stock-ticker">BLDP</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/ITMPF" target="_blank" class="stock-card">
+                    <span class="stock-name">ITM Power</span>
+                    <span class="stock-ticker">ITMPF</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/NLLSF" target="_blank" class="stock-card">
+                    <span class="stock-name">NEL ASA</span>
+                    <span class="stock-ticker">NLLSF</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/CPWHF" target="_blank" class="stock-card">
+                    <span class="stock-name">Ceres Power Holdings</span>
+                    <span class="stock-ticker">CPWHF</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/ADN" target="_blank" class="stock-card">
+                    <span class="stock-name">Advent Technologies</span>
+                    <span class="stock-ticker">ADN</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/HTOO" target="_blank" class="stock-card">
+                    <span class="stock-name">Fusion Fuel Green</span>
+                    <span class="stock-ticker">HTOO</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/FHYDF" target="_blank" class="stock-card">
+                    <span class="stock-name">First Hydrogen Corp</span>
+                    <span class="stock-ticker">FHYDF</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/WPRT" target="_blank" class="stock-card">
+                    <span class="stock-name">Westport Fuel Systems</span>
+                    <span class="stock-ticker">WPRT</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Industrial Decarbonization & Electrification -->
+        <div class="category-section">
+            <div class="category-header">
+                <h2 class="category-title">Industrial Decarbonization & Electrification</h2>
+            </div>
+            <div class="stocks-grid">
+                <a href="https://finance.yahoo.com/quote/LIN" target="_blank" class="stock-card">
+                    <span class="stock-name">Linde</span>
+                    <span class="stock-ticker">LIN</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/AIQUY" target="_blank" class="stock-card">
+                    <span class="stock-name">Air Liquide</span>
+                    <span class="stock-ticker">AIQUY</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/APD" target="_blank" class="stock-card">
+                    <span class="stock-name">Air Products and Chemicals</span>
+                    <span class="stock-ticker">APD</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/CMI" target="_blank" class="stock-card">
+                    <span class="stock-name">Cummins</span>
+                    <span class="stock-ticker">CMI</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/JMPLY" target="_blank" class="stock-card">
+                    <span class="stock-name">Johnson Matthey</span>
+                    <span class="stock-ticker">JMPLY</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Electrical Equipment, Grid Modernization, Efficiency -->
+        <div class="category-section">
+            <div class="category-header">
+                <h2 class="category-title">Electrical Equipment, Grid Modernization, Efficiency</h2>
+            </div>
+            <div class="stocks-grid">
+                <a href="https://finance.yahoo.com/quote/SBGSY" target="_blank" class="stock-card">
+                    <span class="stock-name">Schneider Electric</span>
+                    <span class="stock-ticker">SBGSY</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/ABBNY" target="_blank" class="stock-card">
+                    <span class="stock-name">ABB</span>
+                    <span class="stock-ticker">ABBNY</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/ETN" target="_blank" class="stock-card">
+                    <span class="stock-name">Eaton Corporation</span>
+                    <span class="stock-ticker">ETN</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/EMR" target="_blank" class="stock-card">
+                    <span class="stock-name">Emerson Electric</span>
+                    <span class="stock-ticker">EMR</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/JCI" target="_blank" class="stock-card">
+                    <span class="stock-name">Johnson Controls</span>
+                    <span class="stock-ticker">JCI</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/MIELY" target="_blank" class="stock-card">
+                    <span class="stock-name">Mitsubishi Electric</span>
+                    <span class="stock-ticker">MIELY</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/HTHIY" target="_blank" class="stock-card">
+                    <span class="stock-name">Hitachi</span>
+                    <span class="stock-ticker">HTHIY</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/WEGZY" target="_blank" class="stock-card">
+                    <span class="stock-name">WEG</span>
+                    <span class="stock-ticker">WEGZY</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/HUBB" target="_blank" class="stock-card">
+                    <span class="stock-name">Hubbell</span>
+                    <span class="stock-ticker">HUBB</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/NVT" target="_blank" class="stock-card">
+                    <span class="stock-name">nVent Electric</span>
+                    <span class="stock-ticker">NVT</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/GNRC" target="_blank" class="stock-card">
+                    <span class="stock-name">Generac Holdings</span>
+                    <span class="stock-ticker">GNRC</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/ESE" target="_blank" class="stock-card">
+                    <span class="stock-name">ESCO Technologies</span>
+                    <span class="stock-ticker">ESE</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/ITRI" target="_blank" class="stock-card">
+                    <span class="stock-name">Itron</span>
+                    <span class="stock-ticker">ITRI</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/ATKR" target="_blank" class="stock-card">
+                    <span class="stock-name">Atkore</span>
+                    <span class="stock-ticker">ATKR</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/PLPC" target="_blank" class="stock-card">
+                    <span class="stock-name">Preformed Line Products</span>
+                    <span class="stock-ticker">PLPC</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- EV & Energy Transition Adjacent -->
+        <div class="category-section">
+            <div class="category-header">
+                <h2 class="category-title">EV & Energy Transition Adjacent</h2>
+            </div>
+            <div class="stocks-grid">
+                <a href="https://finance.yahoo.com/quote/TSLA" target="_blank" class="stock-card">
+                    <span class="stock-name">Tesla</span>
+                    <span class="stock-ticker">TSLA</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Materials, Efficiency, and Building Envelope -->
+        <div class="category-section">
+            <div class="category-header">
+                <h2 class="category-title">Materials, Efficiency, and Building Envelope</h2>
+            </div>
+            <div class="stocks-grid">
+                <a href="https://finance.yahoo.com/quote/OC" target="_blank" class="stock-card">
+                    <span class="stock-name">Owens Corning</span>
+                    <span class="stock-ticker">OC</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/ACA" target="_blank" class="stock-card">
+                    <span class="stock-name">Arcosa</span>
+                    <span class="stock-ticker">ACA</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/HXL" target="_blank" class="stock-card">
+                    <span class="stock-name">Hexcel</span>
+                    <span class="stock-ticker">HXL</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/SKFRY" target="_blank" class="stock-card">
+                    <span class="stock-name">SKF AB</span>
+                    <span class="stock-ticker">SKFRY</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/TRYIY" target="_blank" class="stock-card">
+                    <span class="stock-name">Toray Industries</span>
+                    <span class="stock-ticker">TRYIY</span>
+                </a>
+                <a href="https://finance.yahoo.com/quote/PRYMY" target="_blank" class="stock-card">
+                    <span class="stock-name">Prysmian Group</span>
+                    <span class="stock-ticker">PRYMY</span>
+                </a>
+            </div>
+        </div>
+
+    
+    <footer class="footer">
+        <div class="join-team-section">
+            <h3>Join Our Team</h3>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSck77VdhlcZy-yOxqu-6FFh7fOICtAzSBzd0ZDsORjiDDuWQw/viewform?usp=header" target="_blank" class="btn-join-team">Apply Now</a>
+        </div>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Green Equities Research</h4>
+                    <p>Making sustainable investing accessible for everyone through education and innovative tools.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="articles.html">Articles</a></li>
+                        <li><a href="esg-basics.html">ESG Basics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#twitter">Twitter</a></li>
+                        <li><a href="#linkedin">LinkedIn</a></li>
+                        <li><a href="#newsletter">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Green Equities Research. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

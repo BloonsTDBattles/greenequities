@@ -1,0 +1,93 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+venv/
+env/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+.cache/
+
+# Large data files
+*.tar
+data.tar
+llama.cpp/
+
+# Personal directories (not part of website)
+.Trash/
+Desktop/
+Documents/
+Downloads/
+Library/
+Movies/
+Music/
+Pictures/
+Applications/
+Public/
+Sites/
+jupyter_env/
+material-design-icons/
+FirstProgram/
+wpilib/
+.npm/
+.gradle/
+.n8n/
+.rustup/
+.pearai/
+.windsurf/
+.cursor/
+.haiku/
+.EasyOCR/
+.paddlex/
+.streamlit/
+.matplotlib/
+.ipynb_checkpoints/
+.ipython/
+.jupyter/
+.swiftpm/
+.bash_sessions/
+.bash_history
+.zsh_history
+.zsh_sessions/
+.claude/
+.claude.json*
+.codeium/
+.cups/
+.local/
+.ssh/
+.hawtjni/
+.javacpp/
+.openjfx/
+.wdm/
+.CFUserTextEncoding
+.gitconfig
+.zprofile*
+.zshrc
+
+# Jupyter notebooks (not part of website)
+*.ipynb
+
+# Other non-website files in root (not in tools/)
+RecipeApp.swift
+esgdata.csv
+/portfolio-script.js
+/portfolio-styles.css
+/portfolio-visualizer.html

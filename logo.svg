@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 486 400">
+  <defs>
+    <style>
+      .cls-1 { fill: #7fb539; }
+      .cls-2 { fill: #fff; }
+    </style>
+  </defs>
+  <rect class="cls-1" width="486" height="400" rx="0" ry="0" fill="#1a2332"/>
+  <g transform="translate(13, 30)">
+    <path class="cls-2" d="M241.5,46.5c-25.4,0-50.7,9.7-70,29c-19.3,19.3-29,44.6-29,70s9.7,50.7,29,70c19.3,19.3,44.6,29,70,29s50.7-9.7,70-29c19.3-19.3,29-44.6,29-70s-9.7-50.7-29-70C292.2,56.2,266.9,46.5,241.5,46.5z" fill="none" stroke="#7fb539" stroke-width="8"/>
+    <circle cx="241.5" cy="95.5" r="20" fill="#7fb539"/>
+    <circle cx="191.5" cy="115.5" r="20" fill="#7fb539"/>
+    <circle cx="166.5" cy="165.5" r="20" fill="#7fb539"/>
+    <circle cx="191.5" cy="215.5" r="20" fill="#7fb539"/>
+    <circle cx="241.5" cy="235.5" r="20" fill="#7fb539"/>
+    <circle cx="291.5" cy="215.5" r="20" fill="#7fb539"/>
+    <circle cx="316.5" cy="165.5" r="20" fill="#7fb539"/>
+    <circle cx="291.5" cy="115.5" r="20" fill="#7fb539"/>
+  </g>
+  <text x="243" y="290" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#fff" text-anchor="middle">GREEN EQUITIES</text>
+  <text x="243" y="330" font-family="Arial, sans-serif" font-size="28" font-weight="normal" fill="#7fb539" text-anchor="middle" letter-spacing="8">RESEARCH</text>
+</svg>

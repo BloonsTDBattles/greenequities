@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Green Equities Research</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #2d6a4f 0%, #52b788 100%);
+            min-height: 100vh;
+        }
+
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 40px 40px;
+        }
+
+        .about-section {
+            margin-bottom: 40px;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: #2d6a4f;
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .mission-text {
+            font-size: 1.3rem;
+            margin-bottom: 0;
+        }
+
+        .mission-values {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .value-card {
+            background: #f9f9f9;
+            padding: 35px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .value-card p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .team-section {
+            padding: 0 40px 80px;
+            margin-top: 0;
+        }
+
+        .team-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-container h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        .founder-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .founder-image {
+            width: 250px;
+            height: 300px;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .founder-info h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .founder-title {
+            font-size: 1.2rem;
+            color: #2d6a4f;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .founder-bio {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.7;
+            max-width: 500px;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .page-header p {
+                font-size: 1.1rem;
+            }
+
+            .founder-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px;
+            }
+
+            .founder-image {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="gerlogo.png" alt="Green Equities Research" class="logo-image">
+                <span class="logo-text">Green Equities Research</span>
+            </a>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="articles.html" class="nav-link">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a href="esg-basics.html" class="nav-link">ESG Basics</a>
+                </li>
+                <li class="nav-item">
+                    <a href="stocks-list.html" class="nav-link">Stocks List</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <span class="nav-link">Tools ▾</span>
+                    <div class="dropdown-content">
+                        <a href="tools/portfolio-greenifier.html">Portfolio Greenifier</a>
+                        <a href="#quiz">Green Fund Quiz</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About Us</a>
+                </li>
+            </ul>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Content -->
+    <div class="about-content">
+        <div class="about-section">
+            <h2>Our Mission</h2>
+            <p class="mission-text">To make sustainable investing accessible and understandable for everyone, regardless of their experience level or portfolio size. We provide educational content, professional tools, and research to help investors align their portfolios with their values while building wealth.</p>
+        </div>
+    </div>
+
+    <!-- Founder Section -->
+    <section class="team-section">
+        <div class="team-container">
+            <h2>Founder</h2>
+            <div class="founder-card">
+                <img src="melol.png" alt="Daniel Denisovich" class="founder-image">
+                <div class="founder-info">
+                    <h3>Daniel Denisovich</h3>
+                    <p class="founder-title">Founder & CEO</p>
+                    <p class="founder-bio">Daniel is deeply passionate about sustainable investing and democratizing access to ESG analysis. With a commitment to environmental responsibility and financial innovation, he founded Green Equities Research to empower investors to make informed decisions that align their financial goals with their values.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="join-team-section">
+            <h3>Join Our Team</h3>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSck77VdhlcZy-yOxqu-6FFh7fOICtAzSBzd0ZDsORjiDDuWQw/viewform?usp=header" target="_blank" class="btn-join-team">Apply Now</a>
+        </div>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Green Equities Research</h4>
+                    <p>Making sustainable investing accessible for everyone through education and innovative tools.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="articles.html">Articles</a></li>
+                        <li><a href="esg-basics.html">ESG Basics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#twitter">Twitter</a></li>
+                        <li><a href="#linkedin">LinkedIn</a></li>
+                        <li><a href="#newsletter">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Green Equities Research. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
