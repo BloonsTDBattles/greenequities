@@ -22,91 +22,62 @@
             margin-bottom: 0;
         }
 
-        .intro-section {
+        .content-container {
             max-width: 900px;
-            margin: 0 auto 60px;
-            padding: 0 40px;
+            margin: 0 auto;
+            padding: 40px 40px 80px;
         }
 
-        .intro-text {
+        .content-section {
             background: white;
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .content-section h2 {
+            font-size: 1.8rem;
+            color: #2d6a4f;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
             line-height: 1.8;
             color: #444;
+            margin-bottom: 20px;
         }
 
-        .basics-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 40px 80px;
+        .content-section p:last-child {
+            margin-bottom: 0;
         }
 
-        .basics-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .basics-card {
-            display: block;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-decoration: none;
-            color: inherit;
-            cursor: pointer;
-        }
-
-        .basics-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .card-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            background: linear-gradient(135deg, #95d5b2 0%, #52b788 100%);
-        }
-
-        .card-content {
-            padding: 20px;
-        }
-
-        .card-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #333;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-
-        .card-meta {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .card-author {
-            font-weight: 500;
+        .content-section a {
             color: #2d6a4f;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #52b788;
+            transition: all 0.3s;
         }
 
-        .card-date {
-            color: #999;
+        .content-section a:hover {
+            color: #52b788;
         }
 
-        @media (max-width: 1024px) {
-            .basics-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .highlight-box {
+            background: #f0f9f4;
+            border-left: 4px solid #2d6a4f;
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            font-style: italic;
         }
 
         @media (max-width: 768px) {
@@ -114,12 +85,16 @@
                 font-size: 2rem;
             }
 
-            .basics-grid {
-                grid-template-columns: 1fr;
+            .content-section {
+                padding: 25px;
             }
 
-            .intro-text {
-                font-size: 1.1rem;
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .content-section p {
+                font-size: 1rem;
             }
         }
     </style>
@@ -135,19 +110,22 @@
 
             <ul class="nav-menu" id="nav-menu">
                 <li class="nav-item">
-                    <a href="articles.html" class="nav-link">Articles</a>
-                </li>
-                <li class="nav-item">
                     <a href="esg-basics.html" class="nav-link">ESG Basics</a>
                 </li>
                 <li class="nav-item">
                     <a href="stocks-list.html" class="nav-link">Stocks List</a>
                 </li>
+                <li class="nav-item">
+                    <a href="funds-list.html" class="nav-link">Funds List</a>
+                </li>
+                <li class="nav-item">
+                    <a href="ice-list.html" class="nav-link">ICE List</a>
+                </li>
                 <li class="nav-item dropdown">
                     <span class="nav-link">Tools ▾</span>
                     <div class="dropdown-content">
                         <a href="tools/portfolio-greenifier.html">Portfolio Greenifier</a>
-                        <a href="#quiz">Green Fund Quiz</a>
+                        <a href="tools/green-fund-quiz.html">Green Fund Quiz</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -168,81 +146,43 @@
         <h1>What is Sustainable Investing</h1>
     </section>
 
-    <!-- Introduction -->
-    <div class="intro-section">
-        <div class="intro-text">
-            <p>Sustainable investing represents a fundamental shift in how we think about building wealth. It recognizes that long-term financial success is inseparable from environmental health, social responsibility, and ethical governance. By integrating ESG (Environmental, Social, and Governance) factors into investment decisions, we can pursue competitive returns while supporting companies that contribute to a more sustainable future. This approach isn't about sacrificing profits—it's about recognizing that sustainable business practices often lead to sustainable financial performance.</p>
+    <!-- Content -->
+    <div class="content-container">
+        <div class="content-section">
+            <h2>The Fundamentals</h2>
+            <p>Sustainable investing represents a fundamental shift in how we think about investing. Instead of investing purely based on the profit motive, you are taking into account ESG (Environmental, Social, and Governance) factors such as how well the company treats its employees, how ethical the business is, and the carbon emissions produced by the company's operations. At Green Equities Research we mostly focus on the environmental impact of companies, by providing resources dedicated to green energy companies but we recognize the importance of considering other factors before investing as well.</p>
+
+            <div class="highlight-box">
+                <p>Our philosophy behind ESG investing is that corporations are motivated by money, and will attempt to increase profits no matter how immoral it may be. However, if enough people are conscious about not investing into harmful corporations, the corporations would be incentivized to cease their harmful practices. Of course, this only works if enough people put thought into how ethical the companies they invest in are.</p>
+            </div>
         </div>
-    </div>
 
-    <!-- Basics Cards -->
-    <div class="basics-container">
-        <div class="basics-grid">
-            <a href="basics/what-is-esg.html" class="basics-card">
-                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=500&fit=crop" alt="What is ESG" class="card-image">
-                <div class="card-content">
-                    <h2 class="card-title">What is ESG?</h2>
-                    <div class="card-meta">
-                        <span class="card-author">By Daniel Denisovich</span>
-                        <span class="card-date">December 20, 2025</span>
-                    </div>
-                </div>
-            </a>
+        <div class="content-section">
+            <h2>Understanding ESG Scores</h2>
+            <p>So how would you know if a company you're investing in has an ethical business model? You would look at their ESG score. Many different organizations assign ESG scores, most notably MSCI, S&P Global, and Sustainalytics. These organizations collect data from documents like company disclosures, regulatory filings, news and NGO reports. They then plug numbers into an industry-specific formula to calculate a score for each of the three categories (Environmental, Social, Governance), to give them a score from 0-100. Different agencies use different factors and scoring systems to determine the ESG score of a company, but overall companies are rated similarly across organizations.</p>
+        </div>
 
-            <a href="basics/esg-scores.html" class="basics-card">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop" alt="ESG Scores" class="card-image">
-                <div class="card-content">
-                    <h2 class="card-title">How ESG Scores Work</h2>
-                    <div class="card-meta">
-                        <span class="card-author">By Daniel Denisovich</span>
-                        <span class="card-date">December 18, 2025</span>
-                    </div>
-                </div>
-            </a>
+        <div class="content-section">
+            <h2>Getting Started with ESG Investing</h2>
+            <p>So how can you start ESG investing? The easiest option for most people is using ESG funds. Many large asset managers like Blackrock and Vanguard offer funds that track the S&P 500 excluding problematic companies in industries like tobacco, gambling, and fossil fuel extraction. These funds provide returns similar to the broad market while restricting capital from some companies, however they can commonly include many harmful companies that are not too harmful. Other funds follow the "inclusion" model, where only companies with exceptional ESG scores are added. Then there are hardcore green funds that only include companies related to clean energy. These funds provide the most impact but are overexposed to industry-specific risk, many even posting negative returns in the last 10 years. Check out our <a href="funds-list.html">Green Funds list</a> for more information on Green Funds.</p>
 
-            <a href="basics/esg-funds.html" class="basics-card">
-                <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&h=500&fit=crop" alt="ESG Funds" class="card-image">
-                <div class="card-content">
-                    <h2 class="card-title">ESG Funds Explained</h2>
-                    <div class="card-meta">
-                        <span class="card-author">By Daniel Denisovich</span>
-                        <span class="card-date">December 16, 2025</span>
-                    </div>
-                </div>
-            </a>
+            <p>The best way to make your portfolio reflect your level of impact and risk tolerance is to research and handpick stocks yourself. When researching a stock yourself, you have the opportunity to understand the story behind the ESG score and not blindly trust it. The truth is, most large companies hire teams to optimize the company's ESG score using as little resources as possible. Reading the company's sustainability report, learning about controversies surrounding the company and reading past employees reviews are great ways to get a greater understanding of the ethics of a company. When handpicking stocks, you can evaluate if companies align with your unique values, and not rely on a big ratings agency. However it is important to not forget the fundamentals of portfolio building, like diversifying across sectors, picking at least 10 companies and holding stocks long term. Check out our <a href="stocks-list.html">Green Stocks list</a> for ideas.</p>
+        </div>
 
-            <a href="basics/green-bonds-intro.html" class="basics-card">
-                <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800&h=500&fit=crop" alt="Green Bonds" class="card-image">
-                <div class="card-content">
-                    <h2 class="card-title">Introduction to Green Bonds</h2>
-                    <div class="card-meta">
-                        <span class="card-author">By Daniel Denisovich</span>
-                        <span class="card-date">December 14, 2025</span>
-                    </div>
-                </div>
-            </a>
+        <div class="content-section">
+            <h2>Does ESG Investing Actually Work?</h2>
+            <p>But does avoiding harmful companies actually change corporate behavior? Yes. There is between $3.2 trillion and $7.8 trillion invested in ESG-type funds today. Even though the scoring system has flaws, this capital shift has pressured companies to become more climate-friendly on many occasions.</p>
 
-            <a href="basics/impact-investing.html" class="basics-card">
-                <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800&h=500&fit=crop" alt="Impact Investing" class="card-image">
-                <div class="card-content">
-                    <h2 class="card-title">Impact Investing Fundamentals</h2>
-                    <div class="card-meta">
-                        <span class="card-author">By Daniel Denisovich</span>
-                        <span class="card-date">December 12, 2025</span>
-                    </div>
-                </div>
-            </a>
+            <p>Between 2018 and 2021, investors pushed BMW, Volkswagen, and other European automakers to cut emissions and expand EV production or risk being removed from ESG and EU sustainability indexes. The car companies responded by committing more than $60 billion to EV development and adopting a plan for emissions reduction.</p>
 
-            <a href="basics/getting-started.html" class="basics-card">
-                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=500&fit=crop" alt="Getting Started" class="card-image">
-                <div class="card-content">
-                    <h2 class="card-title">Getting Started with Sustainable Investing</h2>
-                    <div class="card-meta">
-                        <span class="card-author">By Daniel Denisovich</span>
-                        <span class="card-date">December 10, 2025</span>
-                    </div>
-                </div>
-            </a>
+            <p>In 2015, European coal-heavy utility companies were threatened with exclusion from major ESG indexes, and banks began to refuse to finance new coal-related projects. Companies like RWE pivoted from using coal as 54% of its energy production, one of Europe's dirtiest utilities companies, to becoming major investors in renewables and is planning to become carbon-neutral by 2040.</p>
+
+            <p>That same year, global brands like Nestle and Procter & Gamble were forced to cut ties with palm-oil suppliers that caused extreme deforestation after threats of being labeled as environmentally hazardous companies. Of course, there are still many corporations who can just take the blow and not care about ESG scores, but as the amount of money in these funds piles up, they might also be forced to concede.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Join the Movement</h2>
+            <p>Corporations aren't going to wake up one morning with a sudden love for the atmosphere. We as investors have to do our part to increase the cost of capital of companies that are net negative for society. If you read to the end and want to join us and spread this message further, scroll down and click "Apply Now", we have many opportunities related to website designing, researching and managing social media.</p>
         </div>
     </div>
 
@@ -261,8 +201,7 @@
                 <div class="footer-col">
                     <h4>Learn</h4>
                     <ul>
-                        <li><a href="articles.html">Articles</a></li>
-                        <li><a href="esg-basics.html">ESG Basics</a></li>
+                                                <li><a href="esg-basics.html">ESG Basics</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">

@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICE List - Green Equities Research</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #2d6a4f 0%, #52b788 100%);
+            min-height: 100vh;
+        }
+
+        .page-header {
+            color: white;
+            padding: 80px 40px 20px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .ice-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 40px 80px;
+        }
+
+        .company-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .company-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #333;
+            margin: 0;
+        }
+
+        .company-ticker {
+            background: #d32f2f;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .company-ticker.private {
+            background: #666;
+        }
+
+        .company-description {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .company-description p {
+            margin-bottom: 12px;
+        }
+
+        .company-description p:last-child {
+            margin-bottom: 0;
+        }
+
+        .update-note {
+            background: #e8f5e9;
+            border-left: 3px solid #4caf50;
+            padding: 10px 15px;
+            margin-top: 12px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.9rem;
+            color: #2e7d32;
+        }
+
+        .category-divider {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .disclaimer {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .disclaimer p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .company-header {
+                flex-direction: column;
+            }
+
+            .company-name {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="gerlogo.png" alt="Green Equities Research" class="logo-image">
+                <span class="logo-text">Green Equities Research</span>
+            </a>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="esg-basics.html" class="nav-link">ESG Basics</a>
+                </li>
+                <li class="nav-item">
+                    <a href="stocks-list.html" class="nav-link">Stocks List</a>
+                </li>
+                <li class="nav-item">
+                    <a href="funds-list.html" class="nav-link">Funds List</a>
+                </li>
+                <li class="nav-item">
+                    <a href="ice-list.html" class="nav-link">ICE List</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <span class="nav-link">Tools ▾</span>
+                    <div class="dropdown-content">
+                        <a href="tools/portfolio-greenifier.html">Portfolio Greenifier</a>
+                        <a href="tools/green-fund-quiz.html">Green Fund Quiz</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About Us</a>
+                </li>
+            </ul>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>ICE List</h1>
+        <p>Companies providing services, technology, financing, or other support to U.S. Immigration and Customs Enforcement (ICE) and related agencies</p>
+    </section>
+
+    <!-- Companies Container -->
+    <div class="ice-container">
+        <div class="disclaimer">
+            <p>This list is compiled from public sources including government contract databases, SEC filings, and investigative reporting. Investors who prioritize social responsibility may wish to consider these relationships when making investment decisions.</p>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Amazon</h2>
+                <span class="company-ticker">NASDAQ: AMZN</span>
+            </div>
+            <div class="company-description">
+                <p>Amazon Web Services (AWS) GovCloud hosts databases and systems used by the Department of Homeland Security, Customs and Border Protection, ICE, and U.S. Citizenship and Immigration Services to track, monitor, and deport immigrants.</p>
+                <p>Amazon is also partnering with Flock Safety and Axon to help law enforcement, including ICE, access Ring doorbell footage without warrants. Approximately 1 in 5 American households has a doorbell camera, and Ring is the largest seller of this technology.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Apple</h2>
+                <span class="company-ticker">NASDAQ: AAPL</span>
+            </div>
+            <div class="company-description">
+                <p>Apple has removed multiple apps designed to help people protect themselves from ICE officers, including ICEBlock. There have also been reports of ICE recruitment ads running on Apple Podcasts.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Aramark</h2>
+                <span class="company-ticker">NYSE: ARMK</span>
+            </div>
+            <div class="company-description">
+                <p>Aramark provides food, facility management, and uniform services. The company supplies food and other services to prisons and immigration detention facilities and uses prison labor.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">AT&T</h2>
+                <span class="company-ticker">NYSE: T</span>
+            </div>
+            <div class="company-description">
+                <p>AT&T provides communications services to U.S. immigration authorities. The company provides communications and maintenance services to DHS and its subagencies, including CBP and ICE. According to USAspending.gov, AT&T currently has multiple active contracts with ICE.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Avelo Airlines</h2>
+                <span class="company-ticker private">Private</span>
+            </div>
+            <div class="company-description">
+                <p>Avelo was the only scheduled passenger airline providing services as part of the ICE Air network, which also includes charter airlines GlobalX, Eastern Air Express, Omni Air International, World Atlantic Airlines, Kaiser Air, Gryphon, and GEO Transport.</p>
+                <div class="update-note">Update: In January 2026, Avelo announced it would cut ties with ICE following public pressure campaigns.</div>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Axon Enterprise</h2>
+                <span class="company-ticker">NASDAQ: AXON</span>
+            </div>
+            <div class="company-description">
+                <p>Axon manufactures less-lethal weapons and surveillance technology used by police, prison, immigration, and military agencies in the U.S. and worldwide. Axon has contracts to provide body cameras and tasers to DHS and is partnering with Amazon to help law enforcement access Ring doorbell surveillance footage.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Bank of America</h2>
+                <span class="company-ticker">NYSE: BAC</span>
+            </div>
+            <div class="company-description">
+                <p>Bank of America has a history of lending to private prison and ICE detention companies. Despite previously pledging to cut ties with the industry, the bank has signaled willingness to resume providing financial services to companies like CoreCivic and GEO Group.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Bank OZK</h2>
+                <span class="company-ticker">NASDAQ: OZK</span>
+            </div>
+            <div class="company-description">
+                <p>Bank OZK was named in a July 2025 amendment to a credit agreement with ICE detention operator GEO Group, serving as joint lead arranger and joint bookrunner.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">BlackRock</h2>
+                <span class="company-ticker">NYSE: BLK</span>
+            </div>
+            <div class="company-description">
+                <p>BlackRock is one of the largest shareholders of both GEO Group and CoreCivic, the two biggest private prison and ICE detention facility operators.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Booz Allen Hamilton</h2>
+                <span class="company-ticker">NYSE: BAH</span>
+            </div>
+            <div class="company-description">
+                <p>Booz Allen Hamilton developed cloud analytics services for U.S. immigration authorities to track and target immigrants. The company has a $51.9 million contract to support ICE's Repository for Analytics in a Virtualized Environment (RAVEn) data repository.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Cellebrite</h2>
+                <span class="company-ticker">NASDAQ: CLBT</span>
+            </div>
+            <div class="company-description">
+                <p>Cellebrite is an Israeli digital intelligence firm that supplies police, prison, and immigration authorities with hacking technologies to extract data from mobile devices.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Citizens Financial Group</h2>
+                <span class="company-ticker">NYSE: CFG</span>
+            </div>
+            <div class="company-description">
+                <p>Citizens Bank has played a key role in financing ICE prison companies CoreCivic and GEO Group, even as other major banks cut ties with the industry.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Comcast</h2>
+                <span class="company-ticker">NASDAQ: CMCSA</span>
+            </div>
+            <div class="company-description">
+                <p>Comcast Government Services has multiple contracts to provide internet and cable services to ICE and CBP facilities.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">CoreCivic</h2>
+                <span class="company-ticker">NYSE: CXW</span>
+            </div>
+            <div class="company-description">
+                <p>CoreCivic is a private prison and immigration detention facility operator with a long history of allegations involving human rights abuses and unsafe conditions. More than 90% of its stock is held by institutional shareholders including Vanguard and BlackRock.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Dell Technologies</h2>
+                <span class="company-ticker">NYSE: DELL</span>
+            </div>
+            <div class="company-description">
+                <p>In 2025, Dell Federal Systems received awards worth over $63 million to provide Microsoft licenses, cloud services, and equipment to ICE and CBP.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Equifax</h2>
+                <span class="company-ticker">NYSE: EFX</span>
+            </div>
+            <div class="company-description">
+                <p>Equifax has a history of providing ICE with data that allows them to track and target immigrants for deportation. Its contract with ICE ended in September 2025.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">FedEx</h2>
+                <span class="company-ticker">NYSE: FDX</span>
+            </div>
+            <div class="company-description">
+                <p>FedEx has a $1 million contract to provide ICE with delivery services, awarded in 2021 and running through 2026.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">First Horizon Bank</h2>
+                <span class="company-ticker">NYSE: FHN</span>
+            </div>
+            <div class="company-description">
+                <p>First Horizon helps ICE detention operator CoreCivic access financing through underwriting agreements.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">General Dynamics</h2>
+                <span class="company-ticker">NYSE: GD</span>
+            </div>
+            <div class="company-description">
+                <p>General Dynamics manufactures weapons and surveillance technology used to monitor the U.S.-Mexico border and immigrant communities. In 2025, General Dynamics subsidiaries received ICE and CBP awards worth more than $38 million for computer programming, consulting, and ammunition.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">GEO Group</h2>
+                <span class="company-ticker">NYSE: GEO</span>
+            </div>
+            <div class="company-description">
+                <p>GEO Group is ICE's top contractor. The company operates private prisons and ICE detention facilities and, through subsidiaries GEO Transport and BI, Inc., provides transportation and electronic surveillance to immigration authorities.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Google / Alphabet</h2>
+                <span class="company-ticker">NASDAQ: GOOG</span>
+            </div>
+            <div class="company-description">
+                <p>Google runs ads for the Department of Homeland Security, including ICE recruitment campaigns. YouTube, owned by Google, also runs these recruitment ads.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Hilton</h2>
+                <span class="company-ticker">NYSE: HLT</span>
+            </div>
+            <div class="company-description">
+                <p>ICE officers have reportedly stayed at numerous Hilton properties. When an independent franchise operator in Minneapolis canceled reservations for federal agents, Hilton revoked its franchise license. Hilton brands include Waldorf Astoria, Conrad, DoubleTree, Hampton, Embassy Suites, and many others.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Home Depot</h2>
+                <span class="company-ticker">NYSE: HD</span>
+            </div>
+            <div class="company-description">
+                <p>Home Depot is included due to its silence on ICE's reported use of its store parking lots as locations for immigrant apprehensions.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">L3Harris</h2>
+                <span class="company-ticker">NYSE: LHX</span>
+            </div>
+            <div class="company-description">
+                <p>L3Harris provides phone tracking devices and other equipment to U.S. immigration authorities. The company manufactures cell-site simulators (Stingrays), and there are reports suggesting ICE may be using such devices to collect information near protests.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Leidos</h2>
+                <span class="company-ticker">NYSE: LDOS</span>
+            </div>
+            <div class="company-description">
+                <p>Leidos provides imaging technologies and biometric systems to U.S. immigration authorities for border monitoring and surveillance.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">RELX (LexisNexis)</h2>
+                <span class="company-ticker">NYSE: RELX</span>
+            </div>
+            <div class="company-description">
+                <p>RELX's subsidiary LexisNexis provides U.S. immigration authorities with systems used to track and target immigrant communities and sells legal databases to prisons and jails.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Microsoft</h2>
+                <span class="company-ticker">NASDAQ: MSFT</span>
+            </div>
+            <div class="company-description">
+                <p>LinkedIn, owned by Microsoft, runs ads for DHS including ICE recruitment campaigns. Microsoft also profits from ICE contracts with third parties including Dell, which provides Microsoft licenses to ICE and CBP.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Meta</h2>
+                <span class="company-ticker">NASDAQ: META</span>
+            </div>
+            <div class="company-description">
+                <p>Meta runs ads for the Department of Homeland Security, including ICE recruitment campaigns, on both Facebook and Instagram.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Motorola Solutions</h2>
+                <span class="company-ticker">NYSE: MSI</span>
+            </div>
+            <div class="company-description">
+                <p>Motorola Solutions provides tactical communications equipment and license plate readers to ICE.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Palantir</h2>
+                <span class="company-ticker">NASDAQ: PLTR</span>
+            </div>
+            <div class="company-description">
+                <p>Since 2013, Palantir has provided ICE with systems like FALCON and Investigative Case Management (ICM), which have been used in workplace raids, large-scale enforcement operations, and investigations involving asylum seekers. Palantir's pattern-finding capabilities have been central to ICE's most aggressive tactics.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Regions Bank</h2>
+                <span class="company-ticker">NYSE: RF</span>
+            </div>
+            <div class="company-description">
+                <p>Regions Bank helps ICE detention operator GEO Group access financing through indenture agreements.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Salesforce</h2>
+                <span class="company-ticker">NYSE: CRM</span>
+            </div>
+            <div class="company-description">
+                <p>Salesforce's systems power the Unified Immigration Portal, a database used by U.S. immigration enforcement agencies to monitor and surveil immigrants. Reports suggest Salesforce is seeking to deepen ties with ICE by providing AI solutions for recruitment and operating ICE's tip line.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Sirius XM (Pandora, Spotify)</h2>
+                <span class="company-ticker">NASDAQ: SIRI</span>
+            </div>
+            <div class="company-description">
+                <p>Pandora has reportedly run ads for DHS and ICE recruitment campaigns. Spotify has also run these ads in the past.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Spotify</h2>
+                <span class="company-ticker">NYSE: SPOT</span>
+            </div>
+            <div class="company-description">
+                <p>Spotify has reportedly run ads for DHS and ICE recruitment campaigns. While not currently running ads, the company has not pledged to refuse them in the future.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">StoneX</h2>
+                <span class="company-ticker">NASDAQ: SNEX</span>
+            </div>
+            <div class="company-description">
+                <p>StoneX helps ICE detention operator CoreCivic access financing through underwriting agreements.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Synovus</h2>
+                <span class="company-ticker">NYSE: SNV</span>
+            </div>
+            <div class="company-description">
+                <p>Synovus helps ICE detention operator CoreCivic access financing through underwriting agreements.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Target Hospitality</h2>
+                <span class="company-ticker">NASDAQ: TH</span>
+            </div>
+            <div class="company-description">
+                <p>Target Hospitality has been awarded contracts for modular housing to accommodate ICE's mass detention operations.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Texas Capital Bank</h2>
+                <span class="company-ticker">NASDAQ: TCBI</span>
+            </div>
+            <div class="company-description">
+                <p>Texas Capital Bank helps ICE detention operator CoreCivic access financing through underwriting agreements.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Thomson Reuters</h2>
+                <span class="company-ticker">NYSE: TRI</span>
+            </div>
+            <div class="company-description">
+                <p>Thomson Reuters provides systems and databases used by U.S. immigration authorities to target and track immigrants.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Vanguard</h2>
+                <span class="company-ticker private">Private</span>
+            </div>
+            <div class="company-description">
+                <p>Vanguard is one of the largest shareholders of both GEO Group and CoreCivic, the two biggest private prison and ICE detention facility operators.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Warner Bros. Discovery (HBO Max, Hulu)</h2>
+                <span class="company-ticker">NASDAQ: WBD</span>
+            </div>
+            <div class="company-description">
+                <p>HBO Max has reportedly run ads for DHS and ICE recruitment campaigns. Hulu, owned by Disney (NYSE: DIS), has also reportedly run these ads.</p>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <h2 class="company-name">Wells Fargo</h2>
+                <span class="company-ticker">NYSE: WFC</span>
+            </div>
+            <div class="company-description">
+                <p>Despite pledging to cut ties with the private prison and ICE detention industry in 2019, Wells Fargo has reportedly softened its policy statements to allow financing for detention companies in some circumstances.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="join-team-section">
+            <h3>Join Our Team</h3>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSck77VdhlcZy-yOxqu-6FFh7fOICtAzSBzd0ZDsORjiDDuWQw/viewform?usp=header" target="_blank" class="btn-join-team">Apply Now</a>
+        </div>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Green Equities Research</h4>
+                    <p>Making sustainable investing accessible for everyone through education and innovative tools.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="esg-basics.html">ESG Basics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#twitter">Twitter</a></li>
+                        <li><a href="#linkedin">LinkedIn</a></li>
+                        <li><a href="#newsletter">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Green Equities Research. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

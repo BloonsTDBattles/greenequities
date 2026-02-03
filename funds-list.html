@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Funds List - Green Equities Research</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #2d6a4f 0%, #52b788 100%);
+            min-height: 100vh;
+        }
+
+        .page-header {
+            color: white;
+            padding: 80px 40px 40px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0;
+        }
+
+        .funds-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 40px 80px;
+        }
+
+        .category-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .category-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #2d6a4f;
+        }
+
+        .category-title {
+            font-size: 2rem;
+            color: #2d6a4f;
+            margin: 0;
+        }
+
+        .funds-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .fund-card {
+            background: #f9f9f9;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fund-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            border-color: #2d6a4f;
+        }
+
+        .fund-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .fund-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            line-height: 1.3;
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .fund-ticker {
+            background: #2d6a4f;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .fund-description {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .fund-meta {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+
+        .risk-badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .risk-low {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .risk-medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .risk-high {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .funds-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="gerlogo.png" alt="Green Equities Research" class="logo-image">
+                <span class="logo-text">Green Equities Research</span>
+            </a>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="esg-basics.html" class="nav-link">ESG Basics</a>
+                </li>
+                <li class="nav-item">
+                    <a href="stocks-list.html" class="nav-link">Stocks List</a>
+                </li>
+                <li class="nav-item">
+                    <a href="funds-list.html" class="nav-link">Funds List</a>
+                </li>
+                <li class="nav-item">
+                    <a href="ice-list.html" class="nav-link">ICE List</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <span class="nav-link">Tools ▾</span>
+                    <div class="dropdown-content">
+                        <a href="tools/portfolio-greenifier.html">Portfolio Greenifier</a>
+                        <a href="tools/green-fund-quiz.html">Green Fund Quiz</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About Us</a>
+                </li>
+            </ul>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Green Funds List</h1>
+    </section>
+
+    <!-- Funds Container -->
+    <div class="funds-container">
+        <!-- Clean Energy ETFs -->
+        <div class="category-section">
+            <div class="category-header">
+                <h2 class="category-title">Clean Energy ETFs</h2>
+            </div>
+            <div class="funds-grid">
+                <a href="https://finance.yahoo.com/quote/ICLN" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">iShares Global Clean Energy ETF</span>
+                        <span class="fund-ticker">ICLN</span>
+                    </div>
+                    <p class="fund-description">Includes: Solar, wind, hydro, and biofuel companies globally. Excludes: Fossil fuels, nuclear, and non-renewable utilities. Concentrated in ~100 pure-play clean energy stocks.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-high">High Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/TAN" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">Invesco Solar ETF</span>
+                        <span class="fund-ticker">TAN</span>
+                    </div>
+                    <p class="fund-description">Includes: Only solar panel manufacturers, installers, and solar tech companies. Excludes: All other energy types including wind. Highly concentrated single-sector exposure.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-high">High Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/QCLN" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">First Trust NASDAQ Clean Edge Green Energy</span>
+                        <span class="fund-ticker">QCLN</span>
+                    </div>
+                    <p class="fund-description">Includes: U.S. clean energy, EVs (Tesla ~8%), solar, wind, batteries. Excludes: Fossil fuels, traditional utilities. Has significant Tesla/EV exposure unlike other clean energy funds.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-high">High Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/PBW" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">Invesco WilderHill Clean Energy ETF</span>
+                        <span class="fund-ticker">PBW</span>
+                    </div>
+                    <p class="fund-description">Includes: Emerging clean energy tech, hydrogen, fuel cells, small-cap green companies. Excludes: Large-cap stocks, fossil fuels. Tilts toward speculative, smaller companies.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-high">High Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/ACES" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">ALPS Clean Energy ETF</span>
+                        <span class="fund-ticker">ACES</span>
+                    </div>
+                    <p class="fund-description">Includes: U.S. and Canadian solar, wind, EVs, storage, hydrogen. Excludes: International stocks, fossil fuels. North America focused with broad clean energy mix.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-high">High Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/FAN" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">First Trust Global Wind Energy ETF</span>
+                        <span class="fund-ticker">FAN</span>
+                    </div>
+                    <p class="fund-description">Includes: Only wind turbine makers, wind farm operators, and wind component suppliers. Excludes: Solar, hydro, all other energy. Single-sector concentration in wind industry.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-high">High Risk</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- ESG Broad Market ETFs -->
+        <div class="category-section">
+            <div class="category-header">
+                <h2 class="category-title">ESG Broad Market ETFs</h2>
+            </div>
+            <div class="funds-grid">
+                <a href="https://finance.yahoo.com/quote/ESGU" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">iShares ESG Aware MSCI USA ETF</span>
+                        <span class="fund-ticker">ESGU</span>
+                    </div>
+                    <p class="fund-description">Includes: Large/mid-cap U.S. stocks with above-average ESG scores. Excludes: Weapons, tobacco, thermal coal. Still holds oil companies with decent ESG scores. Light screening.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-medium">Medium Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/ESGV" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">Vanguard ESG U.S. Stock ETF</span>
+                        <span class="fund-ticker">ESGV</span>
+                    </div>
+                    <p class="fund-description">Includes: ~1,500 U.S. stocks passing ESG screens. Excludes: Weapons, tobacco, fossil fuels, nuclear, gambling, adult entertainment. Stricter exclusions than most ESG funds.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-medium">Medium Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/EFIV" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">SPDR S&P 500 ESG ETF</span>
+                        <span class="fund-ticker">EFIV</span>
+                    </div>
+                    <p class="fund-description">Includes: ~300 S&P 500 stocks with best ESG scores per sector. Excludes: Tobacco, weapons, coal. May still include oil majors. Maintains sector balance similar to S&P 500.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-medium">Medium Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/SUSA" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">iShares MSCI USA ESG Select ETF</span>
+                        <span class="fund-ticker">SUSA</span>
+                    </div>
+                    <p class="fund-description">Includes: ~180 U.S. companies with top ESG ratings in their sector. Excludes: Tobacco, alcohol, weapons, gambling, nuclear, fossil fuels. Stricter than ESGU with fewer holdings.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-medium">Medium Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/SUSL" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">iShares ESG MSCI USA Leaders ETF</span>
+                        <span class="fund-ticker">SUSL</span>
+                    </div>
+                    <p class="fund-description">Includes: Top 50% ESG-rated companies in each sector. Excludes: Tobacco, weapons, coal. Keeps sector diversification while selecting ESG leaders within each industry.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-medium">Medium Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/DSI" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">iShares MSCI KLD 400 Social ETF</span>
+                        <span class="fund-ticker">DSI</span>
+                    </div>
+                    <p class="fund-description">Includes: 400 U.S. companies with strong ESG profiles. Excludes: Alcohol, tobacco, gambling, weapons, nuclear, GMOs. One of the oldest and strictest ESG indexes.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-medium">Medium Risk</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Climate & Low Carbon ETFs -->
+        <div class="category-section">
+            <div class="category-header">
+                <h2 class="category-title">Climate & Low Carbon ETFs</h2>
+            </div>
+            <div class="funds-grid">
+                <a href="https://finance.yahoo.com/quote/CRBN" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">iShares MSCI ACWI Low Carbon Target ETF</span>
+                        <span class="fund-ticker">CRBN</span>
+                    </div>
+                    <p class="fund-description">Includes: Global stocks reweighted to minimize carbon exposure. Excludes: Nothing explicitly, but underweights high emitters. Tracks broad market with lower carbon footprint.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-medium">Medium Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/SMOG" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">VanEck Low Carbon Energy ETF</span>
+                        <span class="fund-ticker">SMOG</span>
+                    </div>
+                    <p class="fund-description">Includes: Alternative energy producers, energy efficiency companies. Excludes: Fossil fuels, traditional utilities. Focused on companies reducing carbon emissions.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-high">High Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/CTEC" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">Global X CleanTech ETF</span>
+                        <span class="fund-ticker">CTEC</span>
+                    </div>
+                    <p class="fund-description">Includes: Clean energy, EVs, batteries, green buildings, pollution control. Excludes: Fossil fuels. Broader than pure clean energy funds with diverse green technology exposure.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-high">High Risk</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Sustainable Mutual Funds -->
+        <div class="category-section">
+            <div class="category-header">
+                <h2 class="category-title">Sustainable Mutual Funds</h2>
+            </div>
+            <div class="funds-grid">
+                <a href="https://finance.yahoo.com/quote/PRBLX" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">Parnassus Core Equity Fund</span>
+                        <span class="fund-ticker">PRBLX</span>
+                    </div>
+                    <p class="fund-description">Includes: ~40 large-cap U.S. stocks with strong ESG and moats. Excludes: Weapons, tobacco, alcohol, fossil fuels, gambling. Actively managed with concentrated positions.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-medium">Medium Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/TICRX" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">TIAA-CREF Social Choice Equity Fund</span>
+                        <span class="fund-ticker">TICRX</span>
+                    </div>
+                    <p class="fund-description">Includes: U.S. large-caps meeting labor and environmental standards. Excludes: Weapons, tobacco, nuclear, gambling. Broad diversification with social screening.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-medium">Medium Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/CSIEX" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">Calvert Equity Fund</span>
+                        <span class="fund-ticker">CSIEX</span>
+                    </div>
+                    <p class="fund-description">Includes: Large-cap ESG leaders with financial strength. Excludes: Weapons, tobacco, fossil fuels, private prisons. One of oldest responsible investing funds since 1987.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-medium">Medium Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/PARWX" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">Parnassus Mid Cap Fund</span>
+                        <span class="fund-ticker">PARWX</span>
+                    </div>
+                    <p class="fund-description">Includes: Mid-cap U.S. companies with quality management. Excludes: Weapons, tobacco, alcohol, fossil fuels. More volatile than large-cap but higher growth potential.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-medium">Medium Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/AMAGX" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">Amana Growth Fund</span>
+                        <span class="fund-ticker">AMAGX</span>
+                    </div>
+                    <p class="fund-description">Includes: Sharia-compliant growth stocks with low debt. Excludes: Alcohol, tobacco, gambling, banks, insurance, pork. No interest income, avoids highly leveraged companies.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-medium">Medium Risk</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Water & Natural Resources -->
+        <div class="category-section">
+            <div class="category-header">
+                <h2 class="category-title">Water & Natural Resources</h2>
+            </div>
+            <div class="funds-grid">
+                <a href="https://finance.yahoo.com/quote/PHO" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">Invesco Water Resources ETF</span>
+                        <span class="fund-ticker">PHO</span>
+                    </div>
+                    <p class="fund-description">Includes: U.S. water utilities, treatment, filtration, and infrastructure companies. Excludes: Non-water industries. Concentrated in ~35 stocks, mostly U.S. focused.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-high">High Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/FIW" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">First Trust Water ETF</span>
+                        <span class="fund-ticker">FIW</span>
+                    </div>
+                    <p class="fund-description">Includes: Water utilities, pipes, pumps, treatment systems companies. Excludes: Non-water businesses. Equal-weighted with ~35 holdings across water value chain.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-high">High Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/CGW" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">Invesco S&P Global Water Index ETF</span>
+                        <span class="fund-ticker">CGW</span>
+                    </div>
+                    <p class="fund-description">Includes: 50 largest global water companies including utilities and equipment makers. Excludes: Non-water businesses. More diversified geographically than PHO or FIW.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-high">High Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/WNDY" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">Global X Wind Energy ETF</span>
+                        <span class="fund-ticker">WNDY</span>
+                    </div>
+                    <p class="fund-description">Includes: Only wind turbine makers, wind farm developers, wind components. Excludes: Solar, other renewables. Pure-play wind exposure, highly concentrated.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-high">High Risk</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- International ESG Funds -->
+        <div class="category-section">
+            <div class="category-header">
+                <h2 class="category-title">International ESG Funds</h2>
+            </div>
+            <div class="funds-grid">
+                <a href="https://finance.yahoo.com/quote/ESGD" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">iShares ESG Aware MSCI EAFE ETF</span>
+                        <span class="fund-ticker">ESGD</span>
+                    </div>
+                    <p class="fund-description">Includes: Developed market stocks (Europe, Japan, Australia) with ESG tilt. Excludes: U.S., tobacco, weapons, coal. Light ESG screening, broad international exposure.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-medium">Medium Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/ESGE" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">iShares ESG Aware MSCI EM ETF</span>
+                        <span class="fund-ticker">ESGE</span>
+                    </div>
+                    <p class="fund-description">Includes: Emerging market stocks (China, Taiwan, India) with ESG scores. Excludes: Tobacco, weapons, coal. Higher volatility from emerging market and currency exposure.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-high">High Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/VSGX" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">Vanguard ESG International Stock ETF</span>
+                        <span class="fund-ticker">VSGX</span>
+                    </div>
+                    <p class="fund-description">Includes: ~4,000 international stocks passing screens. Excludes: Weapons, fossil fuels, tobacco, nuclear, gambling, adult entertainment. Stricter exclusions than ESGD.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-medium">Medium Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/LCTD" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">BlackRock World ex U.S. Carbon Transition Readiness ETF</span>
+                        <span class="fund-ticker">LCTD</span>
+                    </div>
+                    <p class="fund-description">Includes: International companies best positioned for low-carbon transition. Excludes: High carbon emitters, coal. Tilts toward companies reducing emissions over time.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-medium">Medium Risk</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Green Bond Funds -->
+        <div class="category-section">
+            <div class="category-header">
+                <h2 class="category-title">Green Bond Funds</h2>
+            </div>
+            <div class="funds-grid">
+                <a href="https://finance.yahoo.com/quote/BGRN" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">iShares USD Green Bond ETF</span>
+                        <span class="fund-ticker">BGRN</span>
+                    </div>
+                    <p class="fund-description">Includes: Bonds funding renewable energy, clean transport, green buildings. Excludes: Regular corporate bonds. Pure green bond exposure with fixed income stability.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-low">Low Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/EAGG" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">iShares ESG Aware U.S. Aggregate Bond ETF</span>
+                        <span class="fund-ticker">EAGG</span>
+                    </div>
+                    <p class="fund-description">Includes: Government and investment-grade corporate bonds with ESG screens. Excludes: Weapons, tobacco issuers. Bond market exposure with light ESG tilt.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-low">Low Risk</span>
+                    </div>
+                </a>
+                <a href="https://finance.yahoo.com/quote/SUSB" target="_blank" class="fund-card">
+                    <div class="fund-header">
+                        <span class="fund-name">iShares ESG 1-5 Year USD Corporate Bond ETF</span>
+                        <span class="fund-ticker">SUSB</span>
+                    </div>
+                    <p class="fund-description">Includes: Short-term corporate bonds from ESG-screened companies. Excludes: Weapons, tobacco, thermal coal. Lower interest rate risk due to short duration.</p>
+                    <div class="fund-meta">
+                        <span class="risk-badge risk-low">Low Risk</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="join-team-section">
+            <h3>Join Our Team</h3>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSck77VdhlcZy-yOxqu-6FFh7fOICtAzSBzd0ZDsORjiDDuWQw/viewform?usp=header" target="_blank" class="btn-join-team">Apply Now</a>
+        </div>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Green Equities Research</h4>
+                    <p>Making sustainable investing accessible for everyone through education and innovative tools.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Learn</h4>
+                    <ul>
+                                                <li><a href="esg-basics.html">ESG Basics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#twitter">Twitter</a></li>
+                        <li><a href="#linkedin">LinkedIn</a></li>
+                        <li><a href="#newsletter">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Green Equities Research. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Fund Quiz - Green Equities Research</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #2d6a4f 0%, #52b788 100%);
+            min-height: 100vh;
+        }
+
+        .back-nav {
+            background: #2d6a4f;
+            padding: 15px 30px;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.3s;
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+
+        .quiz-container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 0 20px 60px;
+        }
+
+        .quiz-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .quiz-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .quiz-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .quiz-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .question-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .quiz-content {
+            padding: 40px;
+        }
+
+        .question {
+            display: none;
+        }
+
+        .question.active {
+            display: block;
+        }
+
+        .question h2 {
+            font-size: 1.4rem;
+            color: #333;
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: #2d6a4f;
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            background: #f9f9f9;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 16px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            text-align: left;
+        }
+
+        .option:hover {
+            border-color: #2d6a4f;
+            background: #f0f9f4;
+        }
+
+        .option.selected {
+            border-color: #2d6a4f;
+            background: #2d6a4f;
+            color: white;
+        }
+
+        .quiz-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 15px;
+        }
+
+        .btn-quiz {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-back {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-back:hover {
+            background: #d0d0d0;
+        }
+
+        .btn-next {
+            background: #2d6a4f;
+            color: white;
+            margin-left: auto;
+        }
+
+        .btn-next:hover {
+            background: #52b788;
+        }
+
+        .btn-next:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Results */
+        .results {
+            display: none;
+        }
+
+        .results.active {
+            display: block;
+        }
+
+        .results h2 {
+            font-size: 1.8rem;
+            color: #2d6a4f;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .fund-result {
+            background: #f9f9f9;
+            border: 2px solid #2d6a4f;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .fund-result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .fund-result h3 {
+            font-size: 1.3rem;
+            color: #2d6a4f;
+            margin: 0;
+        }
+
+        .fund-ticker {
+            background: #2d6a4f;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .fund-result p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .fund-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .fund-tag {
+            background: #e8f5e9;
+            color: #2d6a4f;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .match-score {
+            background: #2d6a4f;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+
+        .why-match {
+            background: #f0f9f4;
+            border-left: 3px solid #52b788;
+            padding: 12px 15px;
+            margin-top: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .why-match h4 {
+            color: #2d6a4f;
+            font-size: 0.9rem;
+            margin: 0 0 8px 0;
+        }
+
+        .why-match p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .btn-explore {
+            display: inline-block;
+            background: #2d6a4f;
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 25px;
+            transition: all 0.3s;
+        }
+
+        .btn-explore:hover {
+            background: #52b788;
+        }
+
+        .btn-retake {
+            display: inline-block;
+            background: #e0e0e0;
+            color: #333;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 15px;
+            margin-left: 10px;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-retake:hover {
+            background: #d0d0d0;
+        }
+
+        @media (max-width: 768px) {
+            .quiz-header h1 {
+                font-size: 2rem;
+            }
+
+            .quiz-content {
+                padding: 25px;
+            }
+
+            .question-image {
+                height: 150px;
+            }
+
+            .question h2 {
+                font-size: 1.2rem;
+            }
+
+            .fund-result-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-nav">
+        <a href="../index.html" class="back-link">← Back to Main Site</a>
+    </div>
+
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <h1>Green Fund Quiz</h1>
+            <p>Find funds that match your values</p>
+        </div>
+
+        <div class="quiz-card">
+            <!-- Question 1: Focus Area -->
+            <div class="question active" data-question="1">
+                <img src="https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Wind turbines" class="question-image">
+                <div class="quiz-content">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 20%"></div>
+                    </div>
+                    <h2>What do you most want your investments to support?</h2>
+                    <div class="options">
+                        <div class="option" data-value="solar">Solar energy companies</div>
+                        <div class="option" data-value="wind">Wind energy companies</div>
+                        <div class="option" data-value="clean_energy">All clean energy (solar, wind, hydro, etc.)</div>
+                        <div class="option" data-value="water">Water conservation and infrastructure</div>
+                        <div class="option" data-value="broad_esg">Sustainable companies across all industries</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 2: Exclusions -->
+            <div class="question" data-question="2">
+                <img src="https://images.pexels.com/photos/3943716/pexels-photo-3943716.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Factory" class="question-image">
+                <div class="quiz-content">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 40%"></div>
+                    </div>
+                    <h2>Which industries must be completely excluded from your portfolio?</h2>
+                    <div class="options">
+                        <div class="option" data-value="all_sin">Fossil fuels, weapons, tobacco, gambling, and alcohol</div>
+                        <div class="option" data-value="fossil_weapons">Fossil fuels and weapons only</div>
+                        <div class="option" data-value="fossil_only">Fossil fuels only</div>
+                        <div class="option" data-value="none">No strict exclusions needed</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 3: ESG Priority -->
+            <div class="question" data-question="3">
+                <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Team" class="question-image">
+                <div class="quiz-content">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%"></div>
+                    </div>
+                    <h2>Beyond environmental impact, what else matters to you?</h2>
+                    <div class="options">
+                        <div class="option" data-value="e_only">Environment is my only priority</div>
+                        <div class="option" data-value="e_s">Environment + how companies treat workers</div>
+                        <div class="option" data-value="e_g">Environment + corporate ethics and transparency</div>
+                        <div class="option" data-value="all_esg">All three: Environment, Social, and Governance</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 4: Risk/Concentration -->
+            <div class="question" data-question="4">
+                <img src="https://images.pexels.com/photos/7567443/pexels-photo-7567443.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Charts" class="question-image">
+                <div class="quiz-content">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 80%"></div>
+                    </div>
+                    <h2>How concentrated should your fund be?</h2>
+                    <div class="options">
+                        <div class="option" data-value="concentrated">Focused on one sector (higher risk, higher impact)</div>
+                        <div class="option" data-value="moderate">Mix of green sectors with some diversification</div>
+                        <div class="option" data-value="diversified">Broadly diversified across the market (lower risk)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 5: Geography -->
+            <div class="question" data-question="5">
+                <img src="https://images.pexels.com/photos/335393/pexels-photo-335393.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Globe" class="question-image">
+                <div class="quiz-content">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                    <h2>Where should the fund invest?</h2>
+                    <div class="options">
+                        <div class="option" data-value="us">United States only</div>
+                        <div class="option" data-value="developed">US and other developed markets</div>
+                        <div class="option" data-value="global">Global including emerging markets</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div class="results" id="results">
+                <img src="https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Green landscape" class="question-image">
+                <div class="quiz-content">
+                    <h2>Your Top Fund Matches</h2>
+                    <div id="fund-results"></div>
+                    <div style="text-align: center;">
+                        <a href="../funds-list.html" class="btn-explore">See All Green Funds</a>
+                        <button class="btn-retake" onclick="retakeQuiz()">Retake Quiz</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-nav" id="quiz-nav" style="padding: 0 40px 40px;">
+                <button class="btn-quiz btn-back" id="btn-back" style="visibility: hidden;">Back</button>
+                <button class="btn-quiz btn-next" id="btn-next" disabled>Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fund database with detailed attributes
+        const funds = [
+            {
+                ticker: "ICLN",
+                name: "iShares Global Clean Energy ETF",
+                description: "Invests in global companies producing energy from solar, wind, and other renewable sources. One of the largest and most popular clean energy ETFs.",
+                focus: ["clean_energy", "solar", "wind"],
+                excludes: ["fossil_fuels", "weapons"],
+                esg_emphasis: "e_only",
+                concentration: "concentrated",
+                geography: "global",
+                tags: ["Clean Energy", "Solar", "Wind", "Global"]
+            },
+            {
+                ticker: "TAN",
+                name: "Invesco Solar ETF",
+                description: "Focused specifically on solar energy companies including manufacturers, installers, and technology providers. Pure-play solar exposure.",
+                focus: ["solar"],
+                excludes: ["fossil_fuels"],
+                esg_emphasis: "e_only",
+                concentration: "concentrated",
+                geography: "global",
+                tags: ["Solar Only", "Pure-Play", "Global"]
+            },
+            {
+                ticker: "FAN",
+                name: "First Trust Global Wind Energy ETF",
+                description: "Invests exclusively in companies involved in wind energy including turbine manufacturers and wind farm operators.",
+                focus: ["wind"],
+                excludes: ["fossil_fuels"],
+                esg_emphasis: "e_only",
+                concentration: "concentrated",
+                geography: "global",
+                tags: ["Wind Only", "Pure-Play", "Global"]
+            },
+            {
+                ticker: "QCLN",
+                name: "First Trust NASDAQ Clean Edge Green Energy",
+                description: "Tracks US-listed clean energy companies in manufacturing, development, and distribution of clean energy technologies.",
+                focus: ["clean_energy", "solar", "wind"],
+                excludes: ["fossil_fuels"],
+                esg_emphasis: "e_only",
+                concentration: "concentrated",
+                geography: "us",
+                tags: ["Clean Energy", "US Focus", "NASDAQ"]
+            },
+            {
+                ticker: "ACES",
+                name: "ALPS Clean Energy ETF",
+                description: "Covers US and Canadian clean energy companies across solar, wind, EVs, and energy storage sectors.",
+                focus: ["clean_energy", "solar", "wind"],
+                excludes: ["fossil_fuels"],
+                esg_emphasis: "e_only",
+                concentration: "concentrated",
+                geography: "us",
+                tags: ["Clean Energy", "North America", "EVs", "Storage"]
+            },
+            {
+                ticker: "PHO",
+                name: "Invesco Water Resources ETF",
+                description: "Invests in companies creating products to conserve and purify water for homes, businesses, and industries.",
+                focus: ["water"],
+                excludes: [],
+                esg_emphasis: "e_only",
+                concentration: "concentrated",
+                geography: "us",
+                tags: ["Water", "Conservation", "US Focus"]
+            },
+            {
+                ticker: "FIW",
+                name: "First Trust Water ETF",
+                description: "Focuses on companies in the potable water and wastewater industry including utilities and infrastructure.",
+                focus: ["water"],
+                excludes: [],
+                esg_emphasis: "e_only",
+                concentration: "concentrated",
+                geography: "us",
+                tags: ["Water", "Utilities", "Infrastructure"]
+            },
+            {
+                ticker: "CGW",
+                name: "Invesco S&P Global Water Index ETF",
+                description: "Tracks the largest global companies in water-related businesses including utilities, infrastructure, and equipment.",
+                focus: ["water"],
+                excludes: [],
+                esg_emphasis: "e_only",
+                concentration: "concentrated",
+                geography: "global",
+                tags: ["Water", "Global", "Large Cap"]
+            },
+            {
+                ticker: "ESGU",
+                name: "iShares ESG Aware MSCI USA ETF",
+                description: "Broad US market exposure with ESG screening. Maintains diversification while favoring companies with positive ESG characteristics.",
+                focus: ["broad_esg"],
+                excludes: ["weapons", "tobacco"],
+                esg_emphasis: "all_esg",
+                concentration: "diversified",
+                geography: "us",
+                tags: ["Broad Market", "ESG Screened", "US Large Cap"]
+            },
+            {
+                ticker: "ESGV",
+                name: "Vanguard ESG U.S. Stock ETF",
+                description: "Excludes stocks in weapons, tobacco, fossil fuels, gambling, and adult entertainment. Broad US market with strict exclusions.",
+                focus: ["broad_esg"],
+                excludes: ["fossil_fuels", "weapons", "tobacco", "gambling"],
+                esg_emphasis: "all_esg",
+                concentration: "diversified",
+                geography: "us",
+                tags: ["Broad Market", "Strict Exclusions", "Vanguard"]
+            },
+            {
+                ticker: "SUSA",
+                name: "iShares MSCI USA ESG Select ETF",
+                description: "Selects US companies with highest ESG ratings in each sector. Applies strict exclusionary screens for controversial industries.",
+                focus: ["broad_esg"],
+                excludes: ["fossil_fuels", "weapons", "tobacco", "gambling", "alcohol"],
+                esg_emphasis: "all_esg",
+                concentration: "diversified",
+                geography: "us",
+                tags: ["ESG Leaders", "Strict Screens", "Best-in-Class"]
+            },
+            {
+                ticker: "DSI",
+                name: "iShares MSCI KLD 400 Social ETF",
+                description: "Tracks 400 US companies with outstanding ESG ratings. One of the oldest socially responsible investing indexes.",
+                focus: ["broad_esg"],
+                excludes: ["fossil_fuels", "weapons", "tobacco", "gambling", "alcohol"],
+                esg_emphasis: "all_esg",
+                concentration: "diversified",
+                geography: "us",
+                tags: ["ESG Leaders", "400 Companies", "Historic Index"]
+            },
+            {
+                ticker: "SUSL",
+                name: "iShares ESG MSCI USA Leaders ETF",
+                description: "Focuses on companies with the absolute highest ESG ratings within each sector of the US market.",
+                focus: ["broad_esg"],
+                excludes: ["weapons", "tobacco"],
+                esg_emphasis: "all_esg",
+                concentration: "diversified",
+                geography: "us",
+                tags: ["ESG Leaders", "Top Rated", "Sector Leaders"]
+            },
+            {
+                ticker: "EFIV",
+                name: "SPDR S&P 500 ESG ETF",
+                description: "S&P 500 with ESG criteria applied. Excludes tobacco, weapons, and low ESG scorers while tracking the broad market.",
+                focus: ["broad_esg"],
+                excludes: ["weapons", "tobacco"],
+                esg_emphasis: "all_esg",
+                concentration: "diversified",
+                geography: "us",
+                tags: ["S&P 500", "ESG Overlay", "Large Cap"]
+            },
+            {
+                ticker: "ESGD",
+                name: "iShares ESG Aware MSCI EAFE ETF",
+                description: "International developed market stocks (Europe, Australia, Asia) with ESG screening applied.",
+                focus: ["broad_esg"],
+                excludes: ["weapons", "tobacco"],
+                esg_emphasis: "all_esg",
+                concentration: "diversified",
+                geography: "developed",
+                tags: ["International", "Developed Markets", "ESG Screened"]
+            },
+            {
+                ticker: "ESGE",
+                name: "iShares ESG Aware MSCI EM ETF",
+                description: "Emerging market exposure with ESG criteria. Captures growth potential in developing economies with sustainability focus.",
+                focus: ["broad_esg"],
+                excludes: ["weapons", "tobacco"],
+                esg_emphasis: "all_esg",
+                concentration: "diversified",
+                geography: "global",
+                tags: ["Emerging Markets", "ESG Screened", "Growth"]
+            },
+            {
+                ticker: "VSGX",
+                name: "Vanguard ESG International Stock ETF",
+                description: "International stocks excluding weapons, tobacco, fossil fuels, gambling, and other controversial industries.",
+                focus: ["broad_esg"],
+                excludes: ["fossil_fuels", "weapons", "tobacco", "gambling"],
+                esg_emphasis: "all_esg",
+                concentration: "diversified",
+                geography: "global",
+                tags: ["International", "Strict Exclusions", "Vanguard"]
+            },
+            {
+                ticker: "CRBN",
+                name: "iShares MSCI ACWI Low Carbon Target ETF",
+                description: "Global stocks with reduced carbon footprint. Invests in companies with lower carbon emissions than market average.",
+                focus: ["broad_esg", "clean_energy"],
+                excludes: [],
+                esg_emphasis: "e_only",
+                concentration: "diversified",
+                geography: "global",
+                tags: ["Low Carbon", "Global", "Climate Focus"]
+            },
+            {
+                ticker: "SMOG",
+                name: "VanEck Low Carbon Energy ETF",
+                description: "Companies focused on alternative energy production and energy-efficient technologies.",
+                focus: ["clean_energy"],
+                excludes: ["fossil_fuels"],
+                esg_emphasis: "e_only",
+                concentration: "moderate",
+                geography: "global",
+                tags: ["Low Carbon", "Clean Tech", "Efficiency"]
+            },
+            {
+                ticker: "CTEC",
+                name: "Global X CleanTech ETF",
+                description: "Invests in clean technology companies including renewable energy, EVs, and energy storage.",
+                focus: ["clean_energy"],
+                excludes: ["fossil_fuels"],
+                esg_emphasis: "e_only",
+                concentration: "concentrated",
+                geography: "global",
+                tags: ["CleanTech", "EVs", "Storage", "Innovation"]
+            }
+        ];
+
+        let currentQuestion = 1;
+        const totalQuestions = 5;
+        const answers = {};
+
+        const questions = document.querySelectorAll('.question');
+        const btnNext = document.getElementById('btn-next');
+        const btnBack = document.getElementById('btn-back');
+        const quizNav = document.getElementById('quiz-nav');
+        const results = document.getElementById('results');
+
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                const question = this.closest('.question');
+                question.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+                this.classList.add('selected');
+                answers[currentQuestion] = this.dataset.value;
+                btnNext.disabled = false;
+            });
+        });
+
+        btnNext.addEventListener('click', function() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+            } else {
+                showResults();
+            }
+        });
+
+        btnBack.addEventListener('click', function() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showQuestion(currentQuestion);
+            }
+        });
+
+        function showQuestion(num) {
+            questions.forEach(q => q.classList.remove('active'));
+            document.querySelector(`[data-question="${num}"]`).classList.add('active');
+
+            btnBack.style.visibility = num > 1 ? 'visible' : 'hidden';
+            btnNext.textContent = num === totalQuestions ? 'See Results' : 'Next';
+
+            const currentQ = document.querySelector(`[data-question="${num}"]`);
+            const selectedOption = currentQ.querySelector('.option.selected');
+            btnNext.disabled = !selectedOption;
+        }
+
+        function showResults() {
+            questions.forEach(q => q.classList.remove('active'));
+            results.classList.add('active');
+            quizNav.style.display = 'none';
+
+            const rankedFunds = rankFunds();
+            displayResults(rankedFunds.slice(0, 2));
+        }
+
+        function rankFunds() {
+            const focus = answers[1];
+            const exclusions = answers[2];
+            const esg = answers[3];
+            const concentration = answers[4];
+            const geography = answers[5];
+
+            // Map user exclusion preferences to required exclusions
+            const requiredExclusions = {
+                'all_sin': ['fossil_fuels', 'weapons', 'tobacco', 'gambling', 'alcohol'],
+                'fossil_weapons': ['fossil_fuels', 'weapons'],
+                'fossil_only': ['fossil_fuels'],
+                'none': []
+            };
+
+            const userExclusions = requiredExclusions[exclusions] || [];
+
+            return funds.map(fund => {
+                let score = 0;
+                let reasons = [];
+
+                // Focus match (most important)
+                if (fund.focus.includes(focus)) {
+                    score += 40;
+                    if (focus === 'solar') reasons.push("Specializes in solar energy");
+                    else if (focus === 'wind') reasons.push("Specializes in wind energy");
+                    else if (focus === 'clean_energy') reasons.push("Covers all clean energy sectors");
+                    else if (focus === 'water') reasons.push("Focused on water conservation");
+                    else if (focus === 'broad_esg') reasons.push("Broad sustainable market exposure");
+                }
+
+                // Exclusion match
+                const fundExcludes = fund.excludes || [];
+                let exclusionMatch = true;
+                for (const req of userExclusions) {
+                    if (!fundExcludes.includes(req) && req !== 'alcohol') {
+                        // Check if fund focus inherently excludes (clean energy funds exclude fossil fuels)
+                        if (req === 'fossil_fuels' && fund.focus.some(f => ['solar', 'wind', 'clean_energy', 'water'].includes(f))) {
+                            continue;
+                        }
+                        exclusionMatch = false;
+                    }
+                }
+                if (exclusionMatch && userExclusions.length > 0) {
+                    score += 25;
+                    if (userExclusions.length >= 4) reasons.push("Excludes all industries you want to avoid");
+                    else if (userExclusions.includes('fossil_fuels')) reasons.push("Excludes fossil fuels");
+                }
+
+                // ESG emphasis match
+                if (esg === 'e_only' && fund.esg_emphasis === 'e_only') {
+                    score += 15;
+                    reasons.push("Pure environmental focus");
+                } else if (esg === 'all_esg' && fund.esg_emphasis === 'all_esg') {
+                    score += 15;
+                    reasons.push("Full ESG integration");
+                } else if ((esg === 'e_s' || esg === 'e_g') && fund.esg_emphasis === 'all_esg') {
+                    score += 10;
+                }
+
+                // Concentration match
+                if (fund.concentration === concentration) {
+                    score += 10;
+                    if (concentration === 'concentrated') reasons.push("Focused sector exposure");
+                    else if (concentration === 'diversified') reasons.push("Broadly diversified");
+                }
+
+                // Geography match
+                if (fund.geography === geography) {
+                    score += 10;
+                } else if (geography === 'global' && fund.geography === 'developed') {
+                    score += 5;
+                } else if (geography === 'developed' && fund.geography === 'us') {
+                    score += 5;
+                }
+
+                return {
+                    ...fund,
+                    score,
+                    reasons: reasons.slice(0, 3)
+                };
+            }).sort((a, b) => b.score - a.score);
+        }
+
+        function displayResults(topFunds) {
+            const container = document.getElementById('fund-results');
+            container.innerHTML = topFunds.map((fund, index) => `
+                <div class="fund-result">
+                    <div class="fund-result-header">
+                        <h3>${fund.name}<span class="match-score">${Math.round(fund.score)}% match</span></h3>
+                        <span class="fund-ticker">${fund.ticker}</span>
+                    </div>
+                    <p>${fund.description}</p>
+                    <div class="fund-tags">
+                        ${fund.tags.map(tag => `<span class="fund-tag">${tag}</span>`).join('')}
+                    </div>
+                    ${fund.reasons.length > 0 ? `
+                        <div class="why-match">
+                            <h4>Why this matches your values:</h4>
+                            <p>${fund.reasons.join(' • ')}</p>
+                        </div>
+                    ` : ''}
+                </div>
+            `).join('');
+        }
+
+        function retakeQuiz() {
+            currentQuestion = 1;
+            Object.keys(answers).forEach(key => delete answers[key]);
+            document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+            results.classList.remove('active');
+            quizNav.style.display = 'flex';
+            showQuestion(1);
+        }
+    </script>
+</body>
+</html>
